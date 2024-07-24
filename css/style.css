@@ -1,0 +1,390 @@
+*{
+    font-family: "Roboto", sans-serif;
+    box-sizing: border-box;
+}
+html, body {
+    touch-action: manipulation;
+}
+
+body {
+    -webkit-user-select: none;
+    -ms-user-select: none;    
+    user-select: none;   
+     overflow-x: hidden;
+}
+.homepage,#songpage,#song-details{
+    margin: 0 180px;
+    border: 1px solid black;
+}
+.EachsongpageContent a{
+    text-decoration:none;
+}
+.EachsongpageContent{
+    margin: 0 180px;
+}
+.brand{
+    text-align: left;
+    background-color: orange;
+    color: rgb(22, 20, 20);
+    padding: 10px;
+    font-family: "Arial", sans-serif;
+    display: flex;
+    justify-content: left;
+    align-items: center;
+}
+.brand img{
+    width: 50px;
+    vertical-align: middle;
+}
+.brand h1{
+    font-size: 30px;
+}
+#header{
+    display: flex;
+    width: 100%;
+}
+#header div{
+    border: 1px solid black;
+    width: 100%;
+    background-color:white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    cursor: pointer;
+    font-size: large;
+    height: 30px;
+}
+#header div a{
+    text-decoration: none;
+    color: black;
+}
+#searchbar{
+    width: 100%;
+    display: flex;
+}
+#searchbar input[type="text"]{
+    width: 100%;
+    padding: 10px;
+}
+#searchbar input[type="text"]:focus{
+    outline:2px solid #f99548;
+}
+#homeContent{
+    margin-top: 10px;
+}
+#homeContent a{
+    text-decoration: none;
+}
+.resultitems{
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    text-align: left;
+}
+#song{
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    border-bottom: 1px solid black;
+    cursor: pointer;
+    border-bottom: 1px solid black;
+    padding: 5px 0;
+    background-color: white;
+    margin: 0 10px;
+    height: 70px;
+}
+#homebuttons{
+    display: flex;
+    border: none;
+    justify-content: space-between;
+    align-items: center;
+    padding:0 10px;
+    background-color: white;
+}
+#song #songimg{
+    width: 60px;
+    height: 60px;
+    margin: 0 10px 0 0;
+}
+#song img,.pagebuttons img{
+    width: 35px;
+    height: 35px;
+    outline: none;
+    border: none;
+}
+.button{
+    outline: none;
+    border: none;
+    background-color: white;
+    width: 40px;
+    margin: 0 10px;
+}
+#search-results img{
+    width: 40px;
+}
+#search-results{
+    position: absolute;
+    z-index: 100;
+    padding: 0;
+    margin: 0;
+    background-color:white;
+    width: 50%;
+    overflow: scroll;
+    border:1px solid black;
+    scrollbar-width: none;
+
+}
+.song-details #song-img{
+    width: 150px;
+}
+.song-details strong{
+    text-align: left;
+}
+#song-audio{
+    margin:10px auto;
+    display: block;
+    width: 350px;
+}
+.buttonStyle{
+    padding: 10px;
+    color: white;
+    background-color: #222;
+}
+.text-center{
+    width: 250px;
+}
+@media(max-width:768px){
+    .text-center{
+        width: 100px;
+    }
+    #header div{
+        height: 100px;
+    }
+    .homepage,#songpage,#song-details,.EachsongpageContent{
+        margin: 0;
+    }
+    #search-results{
+        width: 100%;
+    }
+    .song-details #song-img{
+        width: 100px;
+    }
+    #song #songimg{
+        height: 50px;
+        width: 50px;
+    }
+    .EachsongpageContent{
+        text-align:left;
+    }
+}
+@media(max-width:1300px){
+    #header div{
+        height: 70px;
+    }
+}
+@media(max-width:900px){
+    #header div{
+        height: 100px;
+    }
+}
+@media (max-width:320px){
+    #song #songimg{
+        height: 30px;
+        width: 30px;
+    }
+    #header div{
+        height: 120px;
+    }
+    #song img,.pagebuttons img{
+        width: 28px;
+        height: 28px;
+    }
+    #searchbar{
+        height: 30px;
+    }
+    #song-audio{
+        width: 250px;
+    }
+}
+@media(max-width:400px){
+    #song{
+        height: 80px;
+    }
+    #song-audio{
+        width: 300px;
+    }
+    .song-details #song-img{
+        width: 90px;
+    }
+    #header div{
+        height: 140px;
+    }
+}
+@media(max-width:380px){
+    #song{
+        height: 100px;
+    }
+    #song-audio{
+        width: 280px;
+    }
+}
+@media(max-width:320px){
+    #song{
+        height: 110px;
+    }
+    #song-audio{
+        width: 270px;
+    }
+}
+.song-details{
+    background-color: white;
+    text-align: center;
+    padding: 10px;
+}
+.pagebuttons{
+    margin: 10px;
+}
+/* Footer styles */
+footer {
+    background-color: #222;
+    color: #fff;
+    text-align: center;
+    padding: 20px 0;
+    font-family: 'Baloo Bhaina 2', sans-serif;
+}
+
+.footer-content {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 10px;
+}
+
+.footer-content h2 {
+    font-size: 1.8em;
+    margin-bottom: 10px;
+}
+
+.footer-content p {
+    margin-bottom: 20px;
+    font-size: 1em;
+}
+.footer-content nav a {
+    color: #fff;
+    text-decoration: none;
+    margin: 0 10px;
+    font-size: 1em;
+}
+
+.footer-content nav a:hover {
+    text-decoration: underline;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f9f9f9;
+    color: #333;
+}
+.homeLink{
+    display: flex;
+    background-color: #f4eeee;
+    padding: 10px;
+    text-decoration: none;
+    font-family: "Arial", sans-serif;
+    margin: 10px 0;
+    color: black;
+}
+input[type=range] {
+    -webkit-appearance: none; 
+    width: 80%;
+    height: 8px;
+    background: rgb(15, 81, 52); 
+    border-radius: 5px; 
+    outline: none; 
+    opacity: 0.7; 
+    transition: opacity .2s;
+  }
+  
+  input[type=range]:hover {
+    opacity: 1; 
+  }
+  
+  input[type=range]::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 25px; 
+    height: 25px; 
+    background: black; 
+    cursor: pointer; 
+    border-radius: 50%; 
+  }
+  .latest-releases a{
+    text-decoration: none;
+  }
+  table {
+    width: 50%;
+    border-collapse: collapse;
+    margin: 25px auto;
+    font-size: 18px;
+    text-align: left;
+  }
+  @media(max-width:768px){
+    table {
+        width: 100%;
+    }
+  }
+  th, td {
+    padding: 12px;
+    border: 1px solid #898686;
+  }
+  th {
+    background-color: #f2f2f2;
+  }
+  tr:nth-child(even) {
+    background-color: #f9f9f9;
+  }
+  /*  .pagebuttons p{*/
+  /*  width: 50%;*/
+  /*  color: black;*/
+  /*  margin: auto;*/
+  /*}*/
+  /*  .pagebuttons img{*/
+  /*  opacity: 0.5;*/
+  /*}*/
+   .announcement-banner {
+    position: relative;
+    text-align: center;
+    margin: 20px 0;
+    overflow: hidden;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.announcement-banner img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.announcement-banner .banner-text {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: white;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+    background: rgba(0, 0, 0, 0.5);
+    padding: 20px;
+    border-radius: 10px;
+}
+.announcement-banner .banner-text::after{
+    content: 'Celebrate Ganesh Chaturthi with Special Marathi Songs';
+    font-size: 26px;
+}
+@media(max-width:768px){
+    .announcement-banner .banner-text::after{
+        content:'Celebrate Ganesh Chaturthi with Special Marathi Songs';
+        font-size: medium;
+    }
+}

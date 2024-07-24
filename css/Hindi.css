@@ -1,0 +1,158 @@
+body {
+    font-family: "Arial", sans-serif;
+    box-sizing: border-box;
+}
+
+.containerBox {
+    margin: 0 180px;
+}
+
+.songContainer {
+    margin: 20px 0;
+
+}
+
+.songBody {
+    background: linear-gradient(to right, orange, white);
+    display: flex;
+    margin: 10px 0;
+    justify-content: space-between;
+    align-items: center;
+    cursor: pointer;
+}
+
+.songBody #songImage {
+    width: 120px;
+    height: 120px;
+}
+
+#songTitle {
+    width:300px;
+    display: flex;
+    flex-direction: column;
+    margin: 0 10px;
+}
+
+#songTitle strong:nth-child(2n) {
+    font-size: small;
+}
+
+#songTitle strong:nth-child(3n) {
+    font-size: small;
+}
+
+.songContainer button img {
+    width: 40px;
+}
+
+#songrangecontainer {
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    width: 60%;
+}
+
+#SongTitleImageContainer{
+    display: flex;
+    align-items: center;
+}
+#songsByPopularStars, #songsByPopularArtist{
+    display: flex;
+    overflow-x: auto;
+    white-space: nowrap;
+    padding: 10px;
+}
+.starsCircle,.ArtistCircle{
+    min-width: 150px;
+    height: 200px;
+    margin-right: 10px;
+    background: linear-gradient(to right, orange, white);
+    display:flex;
+    flex-direction: column;
+    align-items: center;
+    position: relative;
+    font-size: 24px;
+    box-shadow: 2px 2px 8px rgba(0,0,0,0.1);
+    cursor: pointer;
+}
+.starsCircle p, .ArtistCircle p{
+    font-size: medium;
+    text-wrap: wrap;
+    text-align: center;
+    margin: auto;
+}
+.starsCircle img,.ArtistCircle img{
+    width: 150px;
+    height: 150px;
+}
+.starsCircle.active, .ArtistCircle.active {
+    border-top: 4px solid orange;
+    border-bottom: 4px solid orange;
+}
+.starsCircle .close-btn, .ArtistCircle .close-btn {
+    position: absolute;
+    top: 0;
+    right: 0;
+    background-color: red;
+    color: white;
+    border: none;
+    border-radius: 50%;
+    cursor: pointer;
+    font-size: 14px;
+    width: 20px;
+    height: 20px;
+    line-height: 18px;
+    text-align: center;
+}
+@media(max-width:768px) {
+    .containerBox {
+        margin: 0;
+    }
+    .starsCircle, .ArtistCircle{
+        min-width: 100px;
+        height: 150px;
+        margin-right: 10px;
+        background: linear-gradient(to right, orange, white);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 24px;
+        border: 1px solid #999;
+        box-shadow: 2px 2px 5px rgba(0,0,0,0.1);
+    cursor: pointer;
+
+    }
+    .starsCircle p, .ArtistCircle p{
+        font-size: small;
+        text-wrap: wrap;
+        text-align: center;
+        margin: auto;
+    }.starsCircle img,.ArtistCircle img{
+        width: 100px;
+        height: 100px;
+    }
+
+}
+
+@media(max-width:1000px) {
+
+    .songBody {
+        flex-direction: column;
+    }
+
+    #songrangecontainer {
+        display: flex;
+        align-items: center;
+        justify-content: right;
+        width: 100%;
+        padding: 10px;
+    }
+
+}
+
+@media(max-width:410px) {
+
+    #songTitle {
+        width: 100%;
+    }
+}
