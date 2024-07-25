@@ -154,6 +154,7 @@ document.addEventListener('DOMContentLoaded', function() {
     function displayNoSongsMessage(name){
         const p = document.createElement('h1');
         p.textContent = `No songs available for ${name}`;
+        p.style.color = 'red';
         nightysSongs.appendChild(p)
         fetchAllSongs();
     }
