@@ -199,7 +199,7 @@ document.addEventListener('DOMContentLoaded', function() {
                 songBody.appendChild(SongTitleImageContainer);
                 const playbutton = document.createElement('button');
                 playbutton.className = 'button';
-                playbutton.innerHTML = '<img src="../icon/play.png" alt="play song" />';
+                playbutton.innerHTML = '<img src="icon/play.png" alt="play song" />';
                 playbutton.addEventListener('click', (event) => {
                     event.stopPropagation();
                     if (audio.paused) {
