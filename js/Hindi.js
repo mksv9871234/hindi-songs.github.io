@@ -68,23 +68,28 @@ document.addEventListener('DOMContentLoaded', function() {
         })
     })
 
-    fetch('Artist.json')
-    .then(response => response.json())
-    .then(data => {
-        data.forEach(song => {
+    async function fetchArtists() {
+        try {
+            const response = await fetch('Artist.json');
+            if (!response.ok) {
+                throw new Error('Network response was not ok');
+            }
+    
+            const data = await response.json();
+            data.forEach(song => {
                 // songs by popular stars section 
                 const ArtistContainer = document.getElementById('songsByPopularArtist');
                 const Artist = document.createElement('div');
-                Artist.className = 'ArtistCircle'
-                const ArtistImage = document.createElement('img')
+                Artist.className = 'ArtistCircle';
+                const ArtistImage = document.createElement('img');
                 ArtistImage.src = song.image;
                 const ArtistName = document.createElement('p');
                 ArtistName.textContent = song.name;
                 Artist.appendChild(ArtistImage);
-                Artist.appendChild(ArtistName)
+                Artist.appendChild(ArtistName);
                 ArtistContainer.appendChild(Artist);
-
-                Artist.addEventListener('click', function() {
+    
+                Artist.addEventListener('click', async function() {
                     // Remove the "active" class and close button from the previously active star
                     if (currentActiveArtist) {
                         currentActiveArtist.classList.remove('active');
@@ -97,8 +102,9 @@ document.addEventListener('DOMContentLoaded', function() {
                     // Add the "active" class to the clicked star
                     Artist.classList.add('active');
                     currentActiveArtist = Artist;
-           const bio = document.getElementById('bioArtist-actors');
-                bio.innerHTML = `<h2>${song.name} Biography -</h2> ${song.bio}`
+                    const bio = document.getElementById('bioArtist-actors');
+                    bio.innerHTML = `<h2>${song.name} Biography -</h2> ${song.bio}`;
+    
                     // Add a close button to the star
                     const closeButton = document.createElement('button');
                     closeButton.className = 'close-btn';
@@ -116,25 +122,35 @@ document.addEventListener('DOMContentLoaded', function() {
     
                     Artist.appendChild(closeButton);
     
-                    fetch('Hindi.json')
-                        .then(response => response.json())
-                        .then(songs => {
-                            // Filter songs based on the selected actor/actress
-                            const filteredSongs = songs.filter(Artist => 
-                                Artist.artist && Artist.artist.includes(song.name)
-                            );
-                            clearSongs();
-                            // Display filtered songs
-                            if(filteredSongs.length > 0){
-                                displaySongs(filteredSongs);
-                            }else{
-                                displayNoSongsMessage(song.name);
-                            }
-                        });
+                    try {
+                        const songsResponse = await fetch('Hindi.json');
+                        if (!songsResponse.ok) {
+                            throw new Error('Network response was not ok');
+                        }
+    
+                        const songs = await songsResponse.json();
+                        // Filter songs based on the selected actor/actress
+                        const filteredSongs = songs.filter(songItem => 
+                            songItem.artist && songItem.artist.includes(song.name)
+                        );
+                        clearSongs();
+                        // Display filtered songs
+                        if (filteredSongs.length > 0) {
+                            displaySongs(filteredSongs);
+                        } else {
+                            displayNoSongsMessage(song.name);
+                        }
+                    } catch (error) {
+                        console.log('Failed to fetch songs', error);
+                    }
                 });
-        })
-    })
-
+            });
+        } catch (error) {
+            console.log('Failed to fetch artists', error);
+        }
+    }
+    fetchArtists();
+    
     function displayNoSongsMessage(name){
         const p = document.createElement('h1');
         p.textContent = `No songs available for ${name}`;
@@ -247,19 +263,25 @@ document.addEventListener('DOMContentLoaded', function() {
             });
             nightysSongs.appendChild(songContainer);
         }
-      function fetchAllSongs(){
-            fetch('Hindi.json')
-        .then(response => response.json())
-        .then(data => {
-            displaySongs(data)
-        })
-        .catch(error => {
-            console.log('Server not responding', error);
-
-            const errorMessage = document.createElement('p');
-            errorMessage.textContent = 'Could not load songs. Please try again later.';
-            nightysSongs.appendChild(errorMessage);
-        });
-    }
-    fetchAllSongs();
+        async function fetchAllSongs() {
+            try {
+                const response = await fetch('Hindi.json');
+                
+                // Check if the response is okay (status is in the range 200-299)
+                if (!response.ok) {
+                    throw new Error('Network response was not ok');
+                }
+        
+                const data = await response.json();
+                displaySongs(data);
+            } catch (error) {
+                console.log('Server not responding', error);
+        
+                const errorMessage = document.createElement('p');
+                errorMessage.textContent = 'Could not load songs. Please try again later.';
+                nightysSongs.appendChild(errorMessage);
+            }
+        }
+        fetchAllSongs();
+        
 });
