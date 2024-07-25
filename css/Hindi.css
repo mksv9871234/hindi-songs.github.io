@@ -13,7 +13,7 @@ body {
 }
 
 .songBody {
-    background: linear-gradient(to right, orange, white);
+    background: linear-gradient(to right, orange,orange,white, white);
     display: flex;
     margin: 10px 0;
     justify-content: space-between;
